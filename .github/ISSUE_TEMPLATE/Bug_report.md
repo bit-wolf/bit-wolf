@@ -31,7 +31,8 @@ const your = (code) => here;
 Sprint number: 1
 
 For Tooling issues:
-- Node version: XX  <!-- run `node --version` -->
+- Release version: X.X
+- UAT/SIT: <!-- UAT1, SIT1 -->
 - Platform:  <!-- Mac, Linux, Windows, Phone (ex: Iphone 12, ) -->
 
 Others:
