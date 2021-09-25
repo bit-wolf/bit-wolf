@@ -61,7 +61,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. Make your changes in a new git branch:
 
    ```shell
-   git checkout -b fix/{issue id}-my_fix_branch master
+   git checkout -b fix/{issue id}-my_fix_branch origin/master
    ```
 
 1. Create your patch, **including appropriate test cases**.
@@ -79,7 +79,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. Push your branch to GitHub:
 
    ```shell
-   git push origin fix/{issue id}-my_fix_branch master
+   git push origin fix/{issue id}-my_fix_branch
    ```
 
 1. In GitHub, send a pull request to github repo.
@@ -93,6 +93,9 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     ```shell
     git rebase master -i
     git push -f
+    // or
+    git merge origin/master
+    git push
     ```
 
 That's it! Thank you for your contribution!
@@ -106,7 +109,7 @@ You will need all dependencies below
 <a href="https://www.docker.com/get-started"><img src="https://img.shields.io/badge/Docker-v20.10+-success?style=flat&logo=docker" alt="Docker Version" /></a>
 <a href="https://www.docker.com/get-started"><img src="https://img.shields.io/badge/docker--compose-v1.29+-success?style=flat&logo=docker" alt="Docker compose Version" /></a>
 
-1. Read the section development setup at README.md each github repo.
+1. Clone [Compose repository](https://github.com/bit-wolf/compose) and read detail at README.md
 
 ## <a name="rules"></a> Coding Rules
 
@@ -128,20 +131,19 @@ we use the git commit messages to **generate the Bit Wolf change log**.
 
 ### Commit Message Format
 
-Each commit message consists of a **header**, a **body** and a **footer**. The header has a special
-format that includes a **type**, a **scope** and a **subject**:
+Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**. The **body** and **footer** is optional and only have for change log:
 
 ```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
+<type>([optional scope]): <subject>
+
+[optional body]
+
+[optional footer]
 ```
 
 The **header** is mandatory and the **scope** of the header is optional.
 
-Any line of the commit message cannot be longer 100 characters! This allows the message to be easier
+**Any line of the commit message cannot be longer 100 characters!** This allows the message to be easier
 to read on GitHub as well as in various git tools.
 
 Footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
@@ -149,11 +151,16 @@ Footer should contain a [closing reference to an issue](https://help.github.com/
 ```
 docs(changelog): update change log to beta.5
 fix(core): need to depend on latest rxjs and zone.js
+chore(core): update something
 ```
 
 ### Revert
 
-If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `this reverts commit <hash or list hash>.`, where the hash is the SHA of the commit being reverted.
+
+```
+revert([optional scope]): this reverts commit <hash or list hash>
+```
 
 ### Type
 
@@ -165,7 +172,7 @@ Must be one of the following:
 - **docs**: Documentation only changes
 - **feat**: A new feature
 - **fix**: A bug fix
-- **perf**: A code change that improves performance
+<!-- - **perf**: A code change that improves performance -->
 - **refactor**: A code change that neither fixes a bug nor adds a feature
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - **test**: Adding missing tests or correcting existing tests
@@ -177,6 +184,7 @@ The scope should be the name of the npm package affected (as perceived by person
 
 The following is the list of supported scopes:
 
+- **base**
 - **common**
 - **core**
 - **sample**
