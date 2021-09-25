@@ -129,7 +129,7 @@ We have very precise rules over how our git commit messages can be formatted. Th
 readable messages** that are easy to follow when looking through the **project history**. But also,
 we use the git commit messages to **generate the Bit Wolf change log**.
 
-### Commit Message Format
+### Commit Message Format (This format base on [semanticCommits](https://www.conventionalcommits.org/en/v1.0.0/))
 
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**. The **body** and **footer** is optional and only have for change log:
 
@@ -172,11 +172,11 @@ Must be one of the following:
 - **docs**: Documentation only changes
 - **feat**: A new feature
 - **fix**: A bug fix
-<!-- - **perf**: A code change that improves performance -->
 - **refactor**: A code change that neither fixes a bug nor adds a feature
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - **test**: Adding missing tests or correcting existing tests
 - **sample**: A change to the samples
+<!-- - **perf**: A code change that improves performance -->
 
 ### Scope
 
