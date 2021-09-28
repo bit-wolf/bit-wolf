@@ -134,7 +134,7 @@ we use the git commit messages to **generate the Bit Wolf change log**.
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**. The **body** and **footer** is optional and only have for change log:
 
 ```
-<type>([optional scope]): <subject>
+<type>([optional scope]): [<optional issue> -] <subject>
 
 [optional body]
 
@@ -151,7 +151,8 @@ Footer should contain a [closing reference to an issue](https://help.github.com/
 ```
 docs(changelog): update change log to beta.5
 fix(core): need to depend on latest rxjs and zone.js
-chore(core): update something
+feat(base): bit-wolf/libs-fe#9 - add websocket
+chore(base): bit-wolf/libs-fe#9 - add websocket hook
 ```
 
 ### Revert
